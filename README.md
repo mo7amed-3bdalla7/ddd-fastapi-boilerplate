@@ -90,6 +90,18 @@ Copy the example environment file and adjust as needed:
 cp .env.example .env
 ```
 
+### 4. Development Setup with Pre-commit
+
+Set up pre-commit hooks for code quality checks:
+
+```bash
+# Install pre-commit and dev dependencies
+uv sync --dev
+
+# Set up pre-commit hooks
+pre-commit install
+```
+
 ## UV Package Management Commands
 
 ```bash
@@ -130,6 +142,23 @@ API documentation is available at:
 - Swagger UI: `http://localhost:8000/docs`
 - ReDoc: `http://localhost:8000/redoc`
 
+## Code Quality and Linting
+
+This project uses Ruff for linting and formatting:
+
+```bash
+# Run linting
+ruff check .
+
+# Run linting with auto-fix
+ruff check --fix .
+
+# Run formatter
+ruff format .
+```
+
+These checks are automatically run via pre-commit hooks when you commit code.
+
 ## Running Tests
 
 ```bash
@@ -149,8 +178,9 @@ pytest tests/integration/
 1. Follow Domain-Driven Design principles
 2. Write tests for new features
 3. Update documentation when making changes
-4. Follow PEP 8 style guide
+4. Follow code style using Ruff's linting and formatting
 5. Use type hints
+6. Run pre-commit hooks before submitting changes
 
 ## License
 

@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import List
+
 from app.domain.entities.user import User
+
 
 class UserRepository(ABC):
     @abstractmethod
@@ -15,4 +17,4 @@ class UserRepository(ABC):
     @abstractmethod
     async def get_user_by_email(self, email: str) -> User | None:
         """Get a user by email."""
-        pass 
+        pass

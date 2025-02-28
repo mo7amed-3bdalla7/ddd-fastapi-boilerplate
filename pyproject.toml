@@ -20,5 +20,36 @@ dev = [
     "ruff>=0.2.1",
     "pytest>=8.0.0",
     "pytest-asyncio>=0.23.5",
+    "pre-commit>=3.5.0",
+    "mongomock>=4.3.0",
 ]
 
+[tool.pytest.ini_options]
+pythonpath = "."
+testpaths = "tests"
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+# Enable pycodestyle (E), Pyflakes (F), isort (I), bandit (S), bugbear (B), and more
+select = ["E", "F", "I", "B", "S", "W", "PL", "RUF"]
+ignore = []
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]  # Ignore unused imports in __init__.py files
+"tests/**/*.py" = ["S101"]  # Ignore assertions in tests
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"

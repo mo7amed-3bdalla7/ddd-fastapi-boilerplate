@@ -3,6 +3,7 @@ from datetime import datetime
 from typing import Optional
 from uuid import UUID
 
+
 @dataclass
 class User:
     username: str
@@ -10,4 +11,4 @@ class User:
     full_name: str
     created_at: datetime
     updated_at: Optional[datetime] = None
-    id: Optional[UUID] = None 
+    id: Optional[UUID] = None

@@ -1,3 +1,3 @@
 """
 API routes package initialization.
-""" 
+"""

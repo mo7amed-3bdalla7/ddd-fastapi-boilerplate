@@ -1,3 +1,3 @@
 """
 Domain entities package initialization.
-""" 
+"""

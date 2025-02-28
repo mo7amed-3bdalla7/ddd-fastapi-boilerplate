@@ -1,8 +1,10 @@
+import datetime
 from typing import List
-from datetime import datetime
+
 from app.application.interfaces.user_repository import UserRepository
 from app.domain.entities.user import User
 from app.domain.value_objects.email import Email
+
 
 class UserUseCases:
     def __init__(self, user_repository: UserRepository):
@@ -14,7 +16,7 @@ class UserUseCases:
     async def create_user(self, username: str, email: str, full_name: str) -> User:
         # Validate email using value object
         validated_email = Email(email)
-        
+
         # Check if user already exists
         existing_user = await self._user_repository.get_user_by_email(email)
         if existing_user:
@@ -25,8 +27,8 @@ class UserUseCases:
             username=username,
             email=validated_email.value,
             full_name=full_name,
-            created_at=datetime.utcnow()
+            created_at=datetime.datetime.now(datetime.UTC),
         )
-        
+
         # Save and return user
-        return await self._user_repository.create_user(user) 
+        return await self._user_repository.create_user(user)

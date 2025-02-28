@@ -1,5 +1,6 @@
-from fastapi import APIRouter
 from typing import Dict
+
+from fastapi import APIRouter
 
 router = APIRouter(prefix="/ping", tags=["ping_pong"])
 

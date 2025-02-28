@@ -1,3 +1,3 @@
 """
 Infrastructure layer package initialization.
-""" 
+"""
