@@ -1,0 +1,3 @@
+"""
+Application interfaces package initialization.
+""" 
