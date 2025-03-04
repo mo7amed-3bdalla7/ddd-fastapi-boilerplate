@@ -1,6 +1,7 @@
 from typing import List
 
 from fastapi import APIRouter, Depends, HTTPException
+from loguru import logger
 from pydantic import BaseModel, EmailStr
 
 from app.application.use_cases.user_use_cases import UserUseCases
@@ -29,6 +30,11 @@ user_use_cases_dependency = Depends(get_user_use_cases)
 
 @router.get("/", response_model=List[User])
 async def list_users(user_use_cases: UserUseCases = user_use_cases_dependency) -> List[User]:
+    logger.info(
+        {
+            "event": "listing_users",
+        }
+    )
     return await user_use_cases.list_users()
 
 
